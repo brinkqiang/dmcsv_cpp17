@@ -1,0 +1,72 @@
+cmake_minimum_required(VERSION 2.8)
+PROJECT(dmcsv)
+
+IF(UNIX)
+    INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/)
+    INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+    LINK_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/lib/lin)
+
+    SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+    SET(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib/lin)
+
+    FILE(GLOB_RECURSE dmcsv_SOURCES
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/*.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/*.cc
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/*.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h
+
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/*.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h)
+
+    ADD_LIBRARY(dmcsv ${dmcsv_SOURCES})
+
+    FILE(GLOB_RECURSE TEST_SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/test/*.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/test/*.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/test/*.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/test/*.h)
+
+    ADD_EXECUTABLE(dmcsvtest ${TEST_SOURCES})
+
+    TARGET_LINK_LIBRARIES(dmcsvtest rt pthread dmcsv)
+ELSE(UNIX)
+    INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/)
+    INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+    LINK_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/lib/win)
+
+    SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+    SET(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib/win)
+
+    FILE(GLOB_RECURSE dmcsv_SOURCES
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/*.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/*.cc
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/*.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h
+
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/*.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h)
+
+    ADD_LIBRARY(dmcsv ${dmcsv_SOURCES})
+
+    FILE(GLOB_RECURSE dmcsvTEST_SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/test/*.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/test/*.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/test/*.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/test/*.h)
+
+    ADD_EXECUTABLE(dmcsvtest ${dmcsvTEST_SOURCES})
+
+    TARGET_LINK_LIBRARIES(dmcsvtest dmcsv)
+ENDIF(UNIX)
