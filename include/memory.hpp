@@ -1,4 +1,6 @@
-#pragma once
+#ifndef __MEMORY_H_INCLUDE__
+#define __MEMORY_H_INCLUDE__
+
 // Get operating system specific details
 
 namespace csv {
@@ -20,3 +22,5 @@ namespace csv {
         const int PAGE_SIZE = 4096;
     #endif
 }
+
+#endif // __MEMORY_H_INCLUDE__
