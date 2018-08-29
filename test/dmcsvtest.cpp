@@ -1,17 +1,34 @@
-#include "dmcsv.h"
-#include "dmutil.h"
+#include "csv_parser.hpp"
+#include "csv_writer.hpp"
+#include <vector>
+#include <queue>
 
-int main(){
-  std::string strFile = DMGetRootPath() + "..\\data\\addressbook.csv";
-  io::DMCSVReader<3> in(strFile);
-  in.read_header(io::ignore_extra_column, "name", "age", "ip");
-  std::string name;
-  std::string age;;
-  std::string ip;
-  while(in.read_row(name, age, ip)){
-    // do stuff with the data
-    std::cout << name << "\t"<< age << "\t" << ip << std::endl;
-  }
+int main()
+{
+    const char * test_file = "round_trip.csv";
+    std::ofstream out(test_file);
 
-  return 0;
+    std::queue<std::vector<std::string>> q;
+    q.push({ "name", "age", "ip" });
+    q.push({ "Tom", "23", "172.30.10.29" });
+    q.push({ "Plus", "22", "172.30.10.18" });
+    q.push({ "Andy", "27", "172.30.10.21" });
+
+    auto writer = csv::make_csv_writer(out);
+    for (; !q.empty(); q.pop())
+        writer.write_row(q.front());
+
+    out.close();
+
+    csv::CSVReader reader(test_file);
+    csv::CSVRow rows;
+
+    for (size_t i = 0; reader.read_row(rows); i++) {
+        std::cout << rows[reader.index_of("name")].get<std::string>() << "\t"
+            << rows[reader.index_of("age")].get<std::string>() << "\t"
+            << rows[reader.index_of("ip")].get<std::string>() << std::endl;
+    }
+
+
+    return 0;
 }
