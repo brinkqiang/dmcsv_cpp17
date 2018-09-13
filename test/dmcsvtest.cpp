@@ -24,9 +24,9 @@ int main()
     csv::CSVRow rows;
 
     for (size_t i = 0; reader.read_row(rows); i++) {
-        std::cout << rows[reader.index_of("name")].get<std::string>() << "\t"
-            << rows[reader.index_of("age")].get<std::string>() << "\t"
-            << rows[reader.index_of("ip")].get<std::string>() << std::endl;
+        std::cout << rows["name"].get<std::string>() << "\t"
+            << rows["age"].get<std::string>() << "\t"
+            << rows["ip"].get<std::string>() << std::endl;
     }
 
 
