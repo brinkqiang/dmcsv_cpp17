@@ -29,6 +29,5 @@ int main()
             << rows["ip"].get<std::string>() << std::endl;
     }
 
-
     return 0;
 }
