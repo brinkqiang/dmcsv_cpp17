@@ -1,6 +1,6 @@
 
-#ifndef __CSV_WRITER_H_INCLUDE__
-#define __CSV_WRITER_H_INCLUDE__
+#ifndef __DMCSV_WRITER_H_INCLUDE__
+#define __DMCSV_WRITER_H_INCLUDE__
 
 #include <iostream>
 #include <vector>
@@ -130,4 +130,4 @@ namespace csv {
     ///@}
 }
 
-#endif // __CSV_WRITER_H_INCLUDE__
+#endif // __DMCSV_WRITER_H_INCLUDE__

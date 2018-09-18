@@ -1,10 +1,10 @@
 
-#ifndef __CSV_ROW_H_INCLUDE__
-#define __CSV_ROW_H_INCLUDE__
+#ifndef __DMCSV_ROW_H_INCLUDE__
+#define __DMCSV_ROW_H_INCLUDE__
 
 // Auxiliary data structures for CSV parser
 
-#include "data_type.h"
+#include "dmdata_type.h"
 #include <math.h>
 #include <vector>
 #include <string>
@@ -208,4 +208,4 @@ namespace csv {
     }
 }
 
-#endif // __CSV_ROW_H_INCLUDE__
+#endif // __DMCSV_ROW_H_INCLUDE__

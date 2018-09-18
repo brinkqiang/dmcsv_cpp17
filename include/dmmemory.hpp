@@ -1,5 +1,5 @@
-#ifndef __MEMORY_H_INCLUDE__
-#define __MEMORY_H_INCLUDE__
+#ifndef __DMMEMORY_H_INCLUDE__
+#define __DMMEMORY_H_INCLUDE__
 
 // Get operating system specific details
 
@@ -23,4 +23,4 @@ namespace csv {
     #endif
 }
 
-#endif // __MEMORY_H_INCLUDE__
+#endif // __DMMEMORY_H_INCLUDE__

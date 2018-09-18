@@ -1,6 +1,6 @@
 
-#ifndef __CSV_PARSER_H_INCLUDE__
-#define __CSV_PARSER_H_INCLUDE__
+#ifndef __DMCSV_PARSER_H_INCLUDE__
+#define __DMCSV_PARSER_H_INCLUDE__
 
 #include <string_view>
 #include <string>
@@ -20,9 +20,9 @@
 #include <condition_variable>
 #include <iterator>
 
-#include "memory.hpp"
-#include "data_type.h"
-#include "csv_row.hpp"
+#include "dmmemory.hpp"
+#include "dmdata_type.h"
+#include "dmcsv_row.hpp"
 
 /** @file */
 
@@ -389,4 +389,4 @@ namespace csv {
     ///@}
 }
 
-#endif // __CSV_PARSER_H_INCLUDE__
+#endif // __DMCSV_PARSER_H_INCLUDE__

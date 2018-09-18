@@ -1,6 +1,6 @@
 
-#ifndef __DATA_TYPE_H_INCLUDE__
-#define __DATA_TYPE_H_INCLUDE__
+#ifndef __DMDATA_TYPE_H_INCLUDE__
+#define __DMDATA_TYPE_H_INCLUDE__
 
 #include <math.h>
 #include <cctype>
@@ -48,4 +48,4 @@ namespace csv {
     }
 }
 
-#endif // __DATA_TYPE_H_INCLUDE__
+#endif // __DMDATA_TYPE_H_INCLUDE__
